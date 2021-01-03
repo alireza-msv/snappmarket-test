@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import GoogleMap from 'google-map-react';
 import { Link } from 'react-router-dom';
 
+import SplashScreen from '~/components/SplashScreen';
 import SearchBar from '~/components/SearchBar';
 import NewLocationModal from '~/components/NewLocationModal';
 import PinnedItem from '~/components/PinnedItem';
@@ -94,6 +95,7 @@ const Map: React.FC<MapProps> = ({
   return (
     <Container>
       <MapStyles />
+      {loading ? <SplashScreen /> : null}
       <GoogleMap
         bootstrapURLKeys={{ key: configs.googleMapApiKey, libraries: ['places'] }}
         center={[center.lat, center.lng]}

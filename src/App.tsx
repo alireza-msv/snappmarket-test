@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import GlobalStyles from './components/GlobalStyles';
+import SplashScreen from './components/SplashScreen';
 import createStore from './redux';
 
 import Map from './pages/map';
@@ -35,7 +36,7 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <GlobalStyles />
-      <PersistGate persistor={persistor} loading={null}>
+      <PersistGate persistor={persistor} loading={<SplashScreen />}>
         <Router>
           <Switch>
             <Route
